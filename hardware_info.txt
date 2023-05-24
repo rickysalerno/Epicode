@@ -110,3 +110,6 @@ unknown:
                buff/cache condivisi gratuiti totali utilizzati disponibili
 Mem:           21908        9033       11078         200        1796       12369
 Swap:           2047           2        2045
+NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+bpool  1.88G  1.63G   247M        -         -    58%    87%  1.00x    ONLINE  -
+rpool   944G   351G   593G        -         -    20%    37%  1.00x    ONLINE  -
