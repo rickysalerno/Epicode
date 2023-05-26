@@ -3,7 +3,8 @@
 
 function spegni_vm() {
 	for i in epicode_kali_linux_init \
-		 epicode_win7_init 
+		 epicode_win7_init \
+		 epicode_metasploitable_init
 	 do
 		 sudo virsh shutdown $i && pkill -9 virt-viewer
 	 done
