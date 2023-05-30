@@ -1,9 +1,23 @@
-Physical Layer, Il livello fisico piu basso (cavo ethernet)
+Physical Layer, 
+	Il livello fisico piu basso, per livello fisico si intende il mezzo di trasmissione di un 
+	segnale
 
 Data Link, 
 	Il secondo livello dove viene verificato il mac address. Indirizzo Univoco, per scheda di rete. 
-	Qui avviene il classico segnale elettrico 0/1 , dove avviene la verifica dei segnali elettrici 
-	tra parity block e parity bits.
+	Qui avviene il classico segnale elettrico 0/1 , 0 = 0V e 1 = 5V .
+	Avviene la verifica dei segnali elettrici tra parity block e parity bits.
+	In caso di disturbi, o errori, vengono immediatamente corretti in 0 o 1
+	I suoi protocolli possono essere Ethernet, WiFi, WWAN, Fiber e PPP.
 
-Network Layer, questo è il famoso livello 3, quello in cui si comunica tramite indirizzi IP
-Transport Layer, qui è il livello 4 in cui viene eseguito il tipo di protocollo, TCP, UDP e adesso il nuovo QUIC. 
+Network Layer,  
+	questo è il famoso livello 3, quello in cui si comunica tramite indirizzi IP.
+	Qui gli indirizzi di tipo IPv4 sono identificati in ottetti, e variano da 0 a 256.
+	Sono divisi in segmenti di rete di tipo A,B,C.
+	La Best practice, è creare una big net (anche una /24) e suddividerla in mini reti.
+	L'uso di questa best practice diventa un must, quando si cominciano ad usare protocolli
+	di routing e si comincia a sommarizzare le reti per diminuire le dimensioni dei DB dei protocolli
+
+Transport Layer,
+		Qui al livello 4 viene eseguito il tipo di protocollo.
+		TCP, UDP, QUIC, OSPF etc. 
+		Quale usare? dipende dall'utilizzo che si va a fare.
