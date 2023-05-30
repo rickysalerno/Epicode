@@ -1,5 +1,5 @@
 
-I protocolli a livello Data Link, possono essere PPP, PPPoE, ARP, CDP, LLDP, HSRP, VRRP, CARP . etc .
+I protocolli a livello Data Link, possono essere PPP, PPPoE, ARP, CDP, LLDP, HSRP, VRRP, CARP , Ethernet, WiFi, WWAN .
 
 
 	1) PPP, viene utilizzato principalmente per i tunneling o per la comunicazione con disp. seriali.
