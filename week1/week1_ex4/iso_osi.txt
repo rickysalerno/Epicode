@@ -6,4 +6,4 @@ Data Link,
 	tra parity block e parity bits.
 
 Network Layer, questo è il famoso livello 3, quello in cui si comunica tramite indirizzi IP
-Transport Layer, qui è il livello 4 in cui viene eseguito il tipo di protocollo, TCP e UDP. 
+Transport Layer, qui è il livello 4 in cui viene eseguito il tipo di protocollo, TCP, UDP e adesso il nuovo QUIC. 
