@@ -1,23 +1,35 @@
-Physical Layer, 
-	Il livello fisico piu basso, per livello fisico si intende il mezzo di trasmissione di un 
-	segnale
 
-Data Link, 
-	Il secondo livello dove viene verificato il mac address. Indirizzo Univoco, per scheda di rete. 
-	Qui avviene il classico segnale elettrico 0/1 , 0 = 0V e 1 = 5V .
-	Avviene la verifica dei segnali elettrici tra parity block e parity bits.
-	In caso di disturbi, o errori, vengono immediatamente corretti in 0 o 1
-	I suoi protocolli possono essere Ethernet, WiFi, WWAN, Fiber e PPP.
+I protocolli a livello Data Link, possono essere PPP, PPPoE, ARP, CDP, LLDP, HSRP, VRRP, CARP . etc .
 
-Network Layer,  
-	questo è il famoso livello 3, quello in cui si comunica tramite indirizzi IP.
-	Qui gli indirizzi di tipo IPv4 sono identificati in ottetti, e variano da 0 a 256.
-	Sono divisi in segmenti di rete di tipo A,B,C.
-	La Best practice, è creare una big net (anche una /24) e suddividerla in mini reti.
-	L'uso di questa best practice diventa un must, quando si cominciano ad usare protocolli
-	di routing e si comincia a sommarizzare le reti per diminuire le dimensioni dei DB dei protocolli
 
-Transport Layer,
-		Qui al livello 4 viene eseguito il tipo di protocollo.
-		TCP, UDP, QUIC, OSPF etc. 
-		Quale usare? dipende dall'utilizzo che si va a fare.
+	1) PPP, viene utilizzato principalmente per i tunneling o per la comunicazione con disp. seriali.
+
+	2) PPPoE 
+		è la creazione di un tunnel PPP tramite ethernet, veniva usato tantissimo nelle vecchie 
+		ADSL Telecom (user:aliceadsl, pass:aliceadsl)
+	3) ARP 
+		Address Resolution Protocol, viene usato principalmente per indicare su quale porta, sta 
+		quel determinato MAC Address.
+		Popola una table chiamata arp table, in cui associa un mac address ad un ip . 
+		Di solito, esegue un flush/refresh dopo 50 sec circa. 
+	4) CDP 
+		Cisco Discovery Protocol, è un protocollo ormai legacy, usato principalmente su vendor Cisco.
+		Tramite questo protocollo, possiamo vedere il modello, la porta, il suo IP, uptime etc. 
+	5) LLDP
+		Versione Vendor Free, di CDP, diventato lo standard de facto per il discovery di apparati di rete.
+	6) HSRP 
+		Interfaccia Virtuale Cisco, usata per creare balancing, fault tolerance. 
+		La sua tecnologia è utilizzata solo su Cisco.
+		
+	7) VRRP
+		Interfaccia Virtuale, usata principalmente per creare un Load balancing tra router / backup .
+		Il protocollo ormai è uno standard ed è vendor free.
+	8) CARP
+		Interfaccia virtuale, sta tra HSRP e VRRP. Utilizzata principalmente su sistemi BSD, per creare 
+		backup cluster e/o load balancing tra multipli router/firewall
+
+
+Le interfacce HSRP, VRRP, CARP, sono in grado di creare un interfaccia virtuale perche in base ad un ID, sono capaci di creare \n
+un indirizzo arp condiviso. (non cambia)
+
+
