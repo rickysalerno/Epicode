@@ -1,0 +1,9 @@
+Physical Layer, Il livello fisico piu basso (cavo ethernet)
+
+Data Link, 
+	Il secondo livello dove viene verificato il mac address. Indirizzo Univoco, per scheda di rete. 
+	Qui avviene il classico segnale elettrico 0/1 , dove avviene la verifica dei segnali elettrici 
+	tra parity block e parity bits.
+
+Network Layer, questo è il famoso livello 3, quello in cui si comunica tramite indirizzi IP
+Transport Layer, qui è il livello 4 in cui viene eseguito il tipo di protocollo, TCP e UDP. 
