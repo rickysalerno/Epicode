@@ -1,0 +1,28 @@
+1) Il sistema va collegato alla rete lan aziendale tramite cavo.
+
+2) Viene visto il mac address dell'interfaccia , e creata la mac address table. 
+	2.1) Per ogni telecamera viene creato un registro arp
+
+3) Al sistema viene assegnato un indirizzo IP
+
+<------------------------->
+Client Side
+
+1) Quando il client si collegherà al sistema lo fara attraverso il livello 7
+2) Il client riceverà una sessione
+3) Il client utilizzera il protocollo TCP/UDP (dipende dall'applicazione)
+
+
+Fin) Bisogna immaginare la pila iso/osi come una sorta di montagna russa, in cui 
+     quando il client partirà il suo "ciclo" a partire dal suo livello fisico e 
+     arriverà a quello applicativo, la richiesta verso l'altro lato sarà la medesima
+     livello fisico -> data link etc
+
+
+livello fisico													  <----- application
+	-----> data link											<----- presentation
+		------> network 									<----- session
+			------> protocol							<----- protocol
+				------> session 					<----- network
+					-----> presentation			<----- data link
+						-----> application  <----- livello fisico
