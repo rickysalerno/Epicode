@@ -1,0 +1,14 @@
+Le differenze tra http e https sono essenzialmente le seguenti: 
+
+	1) HTTPS usa una certificato per cifrare le informazioni scambiate tra client e server
+	2) Senza certificato, è pressoche impossibile decifrare le info
+	3) HTTP non avendo nessun certificato che cifra il traffico, passa ogni informazione in chiaro
+	4) HTTPS usa la porta TCP 443, la porta 80 invece la HTTP
+
+
+Per capire meglio il tipo di cifratura di SSL/TLS , dobbiamo parlare di cifratura asimmetrica, e quindi di PKI.
+
+Parliamo di PKI, come Public Key Infrastructure, in cui vari certificati verificano la validità di un certificato per ente, e scadenza.
+
+Di conseguenza, in modalita https nell'esercizio non vedrò lo scambio di info tra me ed il client. 
+Cosa diversa in http
