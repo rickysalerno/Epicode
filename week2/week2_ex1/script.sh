@@ -72,6 +72,7 @@ function creazione_dir() {
 	#punto_f
 	punto_g
 	punto_h
+	punto_i
 
 }
 
@@ -113,6 +114,11 @@ function punto_g() {
 function punto_h(){
 	printf "Rimuovo la cartella Amici sotto matteo\n"
 	rm -rf $dir_root/studenti/matteo/amici
+}
+
+function punto_i(){
+	printf "Rimuovo tutte le cartelle\n"
+	rm -rf $dir_root/*
 }
 
 
