@@ -117,12 +117,13 @@ function punto_h(){
 }
 
 function punto_i(){
-	risposta=$(read -e "Con la funzione punto_i , rimuovo tutte le cartelle, procedere?")
-	if [[ $risposta -eq "y" ]]; then
+	read -p "Con la funzione punto_i , rimuovo tutte le cartelle, procedere? (y/n)" risposta
+	echo "stampo il valore di risposta $risposta"
+	if (($risposta == "y")); then
 		printf "Rimuovo tutte le cartelle\n"
-		rm -rf $dir_root/*
-	else 
-		printf "Non rimuovo nessuna cartella\n"
+		#rm -rf $dir_root/*
+	else
+		echo "non rimuovo nessuna cartella"
 	fi
 }
 
