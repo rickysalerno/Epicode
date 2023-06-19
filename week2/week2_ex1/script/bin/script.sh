@@ -131,7 +131,7 @@ function punto_f() {
 	printf "nascondo i contenuti della dir anna\n"
 	printf "per cambiare i permessi di directory, devo eseguire il comando come root\n" 
 	sudo chown nobody:nogroup $dir_root/studenti/anna
-	chmod 660 $dir_root/studenti/anna
+	sudo chmod 660 $dir_root/studenti/anna
 	visualizza_e_dormi $dir_root/studenti/anna
 	formatter
 }
@@ -194,7 +194,7 @@ function lettura_man(){
 	formatter
 	printf "Visualizzo in seq. i man di job ps e kill"
 	sleep 4
-	for i in job ps pkill
+	for i in job ps kill
 	do
 		man $i
 	done
