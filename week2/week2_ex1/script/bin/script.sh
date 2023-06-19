@@ -179,3 +179,73 @@ function formatter(){
 
 creazione_dir
 
+if [[ ! -d ex2 ]]; then
+	mkdir ex2
+	cd $dir_root/ex2 
+fi
+
+
+dir_root="$dir_root/ex2"
+
+function background() {
+	lettura_man
+	esecuzione_vi
+	lista_processi
+	kill_vi
+	esecuzione_firefox
+	kill_firefox
+	visualizza_spazio
+}
+
+function lettura_man(){
+	formatter
+	printf "Visualizzo in seq. i man di job ps e kill"
+	for i in job ps kill
+	do
+		man $i
+	done
+	formatter
+}
+
+function esecuzione_vi(){
+	formatter
+	printf "Apro Il file vi pippo\n"
+	vi pippo &
+	formatter
+}
+
+function lista_processi(){
+	formatter
+	printf "Lista di tutti i processi\n"
+	ps aux | less 
+	formatter
+}
+
+function kill_vi(){
+	formatter
+	printf "Uccido il processo vi\n"
+	pkill -9 vi
+	formatter
+}
+
+function esecuzione_firefox(){
+	formatter
+	printf "Apro firefox\n"
+	firefox  &
+	formatter
+}
+
+function kill_firefox(){
+	formatter
+	printf "Kill firefox\n"
+	pkill -9 firefox
+	formatter
+}
+function visualizza_spazio {
+	formatter
+	printf "Visualizzo spazio su disco\n"
+	df -hT 
+	formatter
+}
+
+background
