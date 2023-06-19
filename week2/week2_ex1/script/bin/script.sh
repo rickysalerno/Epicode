@@ -158,10 +158,11 @@ function punto_i(){
 	echo "stampo il valore di risposta $risposta"
 	if [ $risposta = "y" ]; then
 		printf "Rimuovo tutte le cartelle\n"
-		rm -rf $dir_root || sudo rm -rf $dir_root
+		sudo rm -rf $dir_root
 	else
 		echo "non rimuovo nessuna cartella"
 	fi
+	formatter
 }
 
 
