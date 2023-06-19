@@ -81,7 +81,7 @@ function creazione_dir() {
 	punto_c
 	punto_d
 	punto_e
-	#punto_f
+	punto_f
 	punto_g
 	punto_h
 	punto_i
@@ -128,7 +128,14 @@ function punto_e() {
 	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/pippo.txt
 }
 
-#function punto_f() {}
+function punto_f() {
+	formatter
+	printf "nascondo i contenuti della dir anna\n"
+	chown nobody:nobody $dir_root/studenti/anna
+	chmod 660 $dir_root/studenti/anna
+	visualizza_e_dormi $dir_root/studenti/anna
+	formatter
+}
 
 function punto_g() {
 	formatter
