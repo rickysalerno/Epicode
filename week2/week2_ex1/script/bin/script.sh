@@ -12,80 +12,6 @@ dir_root="$dir_root/ex1"
 
 echo "Stampo dir_root $dir_root"
 
-function creazione_dir() {
-	cd $dir_root
-	for i in dos studenti windows tmp
-	do
-		mkdir $i
-	done
-
-	if [[ -d tmp ]]; then
-		cd tmp
-		if [[ ! -f risultati.doc ]]; then
-			touch risultati.doc
-		fi
-		cd ..
-	fi
-
-
-	if [[ -d studenti ]]; then
-		cd studenti
-	fi
-
-	for j in nicola anna matteo
-	do
-		mkdir $j 
-	done
-
-
-	if [[ -d nicola ]]; then
-		cd nicola 
-		for i in scuola lavoro
-		do
-			mkdir $i
-		done
-
-		# Creazione file sotto nicola/scuola 
-		if [[ ! -f scuola/relazione.doc ]]; then
-			touch scuola/relazione.doc 
-		fi
-		
-		if [[ ! -f scuola/compito.doc ]]; then
-			touch scuola/compito.doc 
-		fi
-
-		cd ..
-	fi
-
-
-	if [[ -d anna ]]; then
-		cd anna
-		mkdir casa
-		cd ..
-	fi
-
-
-	if [[ -d matteo ]]; then
-		cd matteo
-		mkdir amici
-		cd ..
-	fi
-
-	cd $dir_root
-	printf "Mi trovo nella dir $(pwd)\n"
-
-	punto_a
-	punto_b
-	punto_c
-	punto_d
-	punto_e
-	punto_f
-	punto_g
-	punto_h
-	punto_i
-
-}
-
 function punto_a() {
 	formatter
 	printf "Copio il file compito.doc su $dir_root\n"
@@ -176,6 +102,81 @@ function formatter(){
 		echo
 	done
 }
+
+function creazione_dir() {
+	cd $dir_root
+	for i in dos studenti windows tmp
+	do
+		mkdir $i
+	done
+
+	if [[ -d tmp ]]; then
+		cd tmp
+		if [[ ! -f risultati.doc ]]; then
+			touch risultati.doc
+		fi
+		cd ..
+	fi
+
+
+	if [[ -d studenti ]]; then
+		cd studenti
+	fi
+
+	for j in nicola anna matteo
+	do
+		mkdir $j 
+	done
+
+
+	if [[ -d nicola ]]; then
+		cd nicola 
+		for i in scuola lavoro
+		do
+			mkdir $i
+		done
+
+		# Creazione file sotto nicola/scuola 
+		if [[ ! -f scuola/relazione.doc ]]; then
+			touch scuola/relazione.doc 
+		fi
+		
+		if [[ ! -f scuola/compito.doc ]]; then
+			touch scuola/compito.doc 
+		fi
+
+		cd ..
+	fi
+
+
+	if [[ -d anna ]]; then
+		cd anna
+		mkdir casa
+		cd ..
+	fi
+
+
+	if [[ -d matteo ]]; then
+		cd matteo
+		mkdir amici
+		cd ..
+	fi
+
+	cd $dir_root
+	printf "Mi trovo nella dir $(pwd)\n"
+
+	punto_a
+	punto_b
+	punto_c
+	punto_d
+	punto_e
+	punto_f
+	punto_g
+	punto_h
+	punto_i
+
+}
+
 
 creazione_dir
 
