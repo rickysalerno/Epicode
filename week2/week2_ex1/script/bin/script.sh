@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 
+exec 1> output.txt
+
+
+if [[ ! -d ex1 ]]; then
+	mkdir ex1
+	cd ex1 
+fi
+
+
 dir_root=$(pwd)
+
+echo "Stampo dir_root $dir_root"
 
 function creazione_dir() {
 	cd $dir_root
@@ -79,26 +90,31 @@ function creazione_dir() {
 function punto_a() {
 	printf "Copio il file compito.doc su $dir_root\n"
 	cp $dir_root/studenti/nicola/scuola/compito.doc $dir_root 
+	visualizza_e_dormi $dir_root
 }
 
 function punto_b() {
 	printf "Muovo il file relazione.doc su $dir_root\n"
 	mv $dir_root/studenti/nicola/scuola/relazione.doc $dir_root
+	visualizza_e_dormi $dir_root
 }
 
 function punto_c() {
 	printf "Rimuovo la cartella tmp\n"
 	rm -rf $dir_root/tmp  
+	visualizza_e_dormi $dir_root
 }
 
 function punto_d() {
 	printf "creo il file pippo\n"
 	printf "ciao sono il file pippo\n" >  $dir_root/studenti/nicola/lavoro/pippo.txt 
+	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/pippo.txt
 }
 
 function punto_e() {
 	printf "Cambio i permessi del file pippo\n"
 	chmod 664 $dir_root/studenti/nicola/lavoro/pippo.txt
+	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/pippo.txt
 }
 
 #function punto_f() {}
@@ -114,6 +130,7 @@ function punto_g() {
 function punto_h(){
 	printf "Rimuovo la cartella Amici sotto matteo\n"
 	rm -rf $dir_root/studenti/matteo/amici
+	visualizza_e_dormi $dir_root/studenti/matteo
 }
 
 function punto_i(){
@@ -128,4 +145,12 @@ function punto_i(){
 }
 
 
+function visualizza_e_dormi() {
+	ls -l $# 
+	sleep 4
+}
+
+
 creazione_dir
+
+exec 1>&-
