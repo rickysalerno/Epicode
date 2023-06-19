@@ -6,10 +6,11 @@ exec 3>output.txt
 if [[ ! -d ex1 ]]; then
 	mkdir ex1
 	cd ex1 
+	export dir_root="$pwd/ex1"
 fi
 
 
-dir_root=$(pwd)
+#dir_root=$(pwd)
 
 echo "Stampo dir_root $dir_root"
 
