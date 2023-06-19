@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-exec 1> output.txt
+exec 3> output.txt
 
 
 if [[ ! -d ex1 ]]; then
@@ -163,4 +163,4 @@ function formatter(){
 
 creazione_dir
 
-exec 1>&-
+exec 3>&-
