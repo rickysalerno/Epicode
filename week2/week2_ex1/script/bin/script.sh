@@ -90,30 +90,35 @@ function creazione_dir() {
 function punto_a() {
 	printf "Copio il file compito.doc su $dir_root\n"
 	cp $dir_root/studenti/nicola/scuola/compito.doc $dir_root 
+	formatter
 	visualizza_e_dormi $dir_root
 }
 
 function punto_b() {
 	printf "Muovo il file relazione.doc su $dir_root\n"
 	mv $dir_root/studenti/nicola/scuola/relazione.doc $dir_root
+	formatter
 	visualizza_e_dormi $dir_root
 }
 
 function punto_c() {
 	printf "Rimuovo la cartella tmp\n"
 	rm -rf $dir_root/tmp  
+	formatter
 	visualizza_e_dormi $dir_root
 }
 
 function punto_d() {
 	printf "creo il file pippo\n"
 	printf "ciao sono il file pippo\n" >  $dir_root/studenti/nicola/lavoro/pippo.txt 
+	formatter
 	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/pippo.txt
 }
 
 function punto_e() {
 	printf "Cambio i permessi del file pippo\n"
 	chmod 664 $dir_root/studenti/nicola/lavoro/pippo.txt
+	formatter
 	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/pippo.txt
 }
 
@@ -123,13 +128,13 @@ function punto_g() {
 	printf "Visualizzo il contenuto del file pippo\n"
 	cd $dir_root/studenti/nicola/lavoro
 	cat pippo.txt
-	echo 
-	echo
+	formatter
 }
 
 function punto_h(){
 	printf "Rimuovo la cartella Amici sotto matteo\n"
 	rm -rf $dir_root/studenti/matteo/amici
+	formatter
 	visualizza_e_dormi $dir_root/studenti/matteo
 }
 
@@ -138,7 +143,7 @@ function punto_i(){
 	echo "stampo il valore di risposta $risposta"
 	if (($risposta == "y")); then
 		printf "Rimuovo tutte le cartelle\n"
-		#rm -rf $dir_root/*
+		rm -rf $dir_root/ex1
 	else
 		echo "non rimuovo nessuna cartella"
 	fi
@@ -146,9 +151,14 @@ function punto_i(){
 
 
 function visualizza_e_dormi() {
-	ls -l $# 
+	ls -l $1 $2 $3 $4 $5  
 	sleep 4
 }
+
+function formatter(){
+	for (( i = 0; i < 2; i++ )); do
+		echo
+	done
 
 
 creazione_dir
