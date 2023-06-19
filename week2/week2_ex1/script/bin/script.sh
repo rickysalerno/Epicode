@@ -2,15 +2,15 @@
 
 exec 3>output.txt
 
+dir_root=$(pwd)
 
 if [[ ! -d ex1 ]]; then
 	mkdir ex1
-	cd ex1 
-	export dir_root="$pwd/ex1"
+	cd $dir_root/ex1 
 fi
 
 
-#dir_root=$(pwd)
+dir_root="$dir_root/ex1"
 
 echo "Stampo dir_root $dir_root"
 
@@ -150,9 +150,9 @@ function punto_i(){
 	formatter
 	read -p "Con la funzione punto_i , rimuovo tutte le cartelle, procedere? (y/n)" risposta
 	echo "stampo il valore di risposta $risposta"
-	if (($risposta == "y")); then
+	if [ $risposta = "y" ]; then
 		printf "Rimuovo tutte le cartelle\n"
-		rm -rf $dir_root/ex1
+		rm -rf $dir_root
 	else
 		echo "non rimuovo nessuna cartella"
 	fi
