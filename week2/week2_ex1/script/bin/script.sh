@@ -131,7 +131,7 @@ function punto_e() {
 function punto_f() {
 	formatter
 	printf "nascondo i contenuti della dir anna\n"
-	chown nobody:nobody $dir_root/studenti/anna
+	chown nobody:nogroup $dir_root/studenti/anna
 	chmod 660 $dir_root/studenti/anna
 	visualizza_e_dormi $dir_root/studenti/anna
 	formatter
