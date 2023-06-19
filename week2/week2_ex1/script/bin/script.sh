@@ -208,6 +208,7 @@ function esecuzione_vi(){
 	exec 4> output.txt
 	vi pippo > /dev/null &
 	exec 4>&-
+	rm -rf output.txt
 
 	formatter
 }
