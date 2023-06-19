@@ -88,6 +88,7 @@ function creazione_dir() {
 }
 
 function punto_a() {
+	formatter
 	printf "Copio il file compito.doc su $dir_root\n"
 	cp $dir_root/studenti/nicola/scuola/compito.doc $dir_root 
 	formatter
@@ -95,6 +96,7 @@ function punto_a() {
 }
 
 function punto_b() {
+	formatter
 	printf "Muovo il file relazione.doc su $dir_root\n"
 	mv $dir_root/studenti/nicola/scuola/relazione.doc $dir_root
 	formatter
@@ -102,6 +104,7 @@ function punto_b() {
 }
 
 function punto_c() {
+	formatter
 	printf "Rimuovo la cartella tmp\n"
 	rm -rf $dir_root/tmp  
 	formatter
@@ -109,6 +112,7 @@ function punto_c() {
 }
 
 function punto_d() {
+	formatter
 	printf "creo il file pippo\n"
 	printf "ciao sono il file pippo\n" >  $dir_root/studenti/nicola/lavoro/pippo.txt 
 	formatter
@@ -116,6 +120,7 @@ function punto_d() {
 }
 
 function punto_e() {
+	formatter
 	printf "Cambio i permessi del file pippo\n"
 	chmod 664 $dir_root/studenti/nicola/lavoro/pippo.txt
 	formatter
@@ -125,6 +130,7 @@ function punto_e() {
 #function punto_f() {}
 
 function punto_g() {
+	formatter
 	printf "Visualizzo il contenuto del file pippo\n"
 	cd $dir_root/studenti/nicola/lavoro
 	cat pippo.txt
@@ -132,6 +138,7 @@ function punto_g() {
 }
 
 function punto_h(){
+	formatter
 	printf "Rimuovo la cartella Amici sotto matteo\n"
 	rm -rf $dir_root/studenti/matteo/amici
 	formatter
@@ -139,6 +146,7 @@ function punto_h(){
 }
 
 function punto_i(){
+	formatter
 	read -p "Con la funzione punto_i , rimuovo tutte le cartelle, procedere? (y/n)" risposta
 	echo "stampo il valore di risposta $risposta"
 	if (($risposta == "y")); then
