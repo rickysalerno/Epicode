@@ -129,7 +129,8 @@ function punto_e() {
 function punto_f() {
 	formatter
 	printf "nascondo i contenuti della dir anna\n"
-	chown nobody:nogroup $dir_root/studenti/anna
+	printf "per cambiare i permessi di directory, devo eseguire il comando come root\n" 
+	sudo chown nobody:nogroup $dir_root/studenti/anna
 	chmod 660 $dir_root/studenti/anna
 	visualizza_e_dormi $dir_root/studenti/anna
 	formatter
@@ -157,7 +158,7 @@ function punto_i(){
 	echo "stampo il valore di risposta $risposta"
 	if [ $risposta = "y" ]; then
 		printf "Rimuovo tutte le cartelle\n"
-		rm -rf $dir_root
+		rm -rf $dir_root || sudo rm -rf $dir_root
 	else
 		echo "non rimuovo nessuna cartella"
 	fi
