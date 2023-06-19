@@ -72,7 +72,7 @@ function creazione_dir() {
 	fi
 
 	cd $dir_root
-	echo "Mi trovo nella dir $(pwd)"
+	printf "Mi trovo nella dir $(pwd)\n"
 
 	punto_a
 	punto_b
