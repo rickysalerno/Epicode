@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-exec 3>output.txt
-
 dir_root=$(pwd)
 
 if [[ ! -d ex1 ]]; then
@@ -179,4 +177,3 @@ function formatter(){
 
 creazione_dir
 
-exec 3>&-
