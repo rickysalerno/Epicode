@@ -179,13 +179,6 @@ function formatter(){
 
 creazione_dir
 
-if [[ ! -d ex2 ]]; then
-	mkdir ex2
-	cd $dir_root/ex2 
-fi
-
-
-dir_root="$dir_root/ex2"
 
 function background() {
 	lettura_man
@@ -200,7 +193,8 @@ function background() {
 function lettura_man(){
 	formatter
 	printf "Visualizzo in seq. i man di job ps e kill"
-	for i in job ps kill
+	sleep 4
+	for i in job ps pkill
 	do
 		man $i
 	done
@@ -210,20 +204,26 @@ function lettura_man(){
 function esecuzione_vi(){
 	formatter
 	printf "Apro Il file vi pippo\n"
-	vi pippo &
+	sleep 4
+	exec 4> output.txt
+	vi pippo > /dev/null &
+	exec 4>&-
+
 	formatter
 }
 
 function lista_processi(){
 	formatter
 	printf "Lista di tutti i processi\n"
-	ps aux | less 
+	sleep 4
+	ps aux  
 	formatter
 }
 
 function kill_vi(){
 	formatter
 	printf "Uccido il processo vi\n"
+	sleep 4
 	pkill -9 vi
 	formatter
 }
@@ -231,6 +231,7 @@ function kill_vi(){
 function esecuzione_firefox(){
 	formatter
 	printf "Apro firefox\n"
+	sleep 4
 	firefox  &
 	formatter
 }
@@ -238,12 +239,14 @@ function esecuzione_firefox(){
 function kill_firefox(){
 	formatter
 	printf "Kill firefox\n"
-	pkill -9 firefox
+	sleep 4
+	pkill firefox
 	formatter
 }
 function visualizza_spazio {
 	formatter
 	printf "Visualizzo spazio su disco\n"
+	sleep 4
 	df -hT 
 	formatter
 }
