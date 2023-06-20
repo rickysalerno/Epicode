@@ -111,17 +111,18 @@ function punto_k(){
 
 function punto_l(){
 	formatter
-	printf "Visualizzo il contenuto della cartella $dir_root\n"
+	cd $dir_root/studenti/nicola/lavoro/
+	printf "Visualizzo il contenuto della cartella $(pwd)\n"
 	formatter
-	visualizza_e_dormi $dir_root
+	visualizza_e_dormi $(pwd)
 	formatter
-	printf "Modifico gli attributi della dir $dir_root\n"
-	chmod 770 $dir_root
+	printf "Modifico gli attributi della dir $(pwd)\n"
+	chmod 770 .
 	visualizza_e_dormi $dir_root
 	formatter
 	printf "Riporto i permessi iniziali\n"
-	chmod 664 $dir_root
-	visualizza_e_dormi $dir_root
+	chmod 664 .
+	visualizza_e_dormi .
 }
 
 
@@ -131,8 +132,8 @@ function punto_m(){
 	formatter
 	cd $dir_root
 	cd studenti/nicola/scuola
-	printf "Al momento mi trovo sotto la dir $pwd\n"
-	visualizza_e_dormi . 
+	printf "Al momento mi trovo sotto la dir $(pwd)\n"
+	visualizza_e_dormi $(pwd)
 }
 
 function punto_n(){
@@ -142,7 +143,7 @@ function punto_n(){
 	cd $dir_root/studenti/nicola/scuola
 	mkdir .mia 
 	chmod 660 .mia 
-	visualizza_e_dormi .
+	visualizza_e_dormi .mia
 }
 
 function punto_o(){
@@ -150,7 +151,7 @@ function punto_o(){
 	printf "Eseguo ls su $pwd .mia\n"
 	formatter
 	cd $dir_root/studenti/nicola/scuola
-	visualizza_e_dormi .
+	visualizza_e_dormi .mia
 }
 
 function visualizza_e_dormi() {
