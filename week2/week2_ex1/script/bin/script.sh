@@ -81,6 +81,7 @@ function punto_h(){
 
 function punto_i(){
 	formatter
+	printf "Esecuzione punto_i, la lancio come ultimo comando prche cosi cancella tutte le dir\n"
 	read -p "Con la funzione punto_i , rimuovo tutte le cartelle, procedere? (y/n)" risposta
 	echo "stampo il valore di risposta $risposta"
 	if [ $risposta = "y" ]; then
@@ -92,6 +93,65 @@ function punto_i(){
 	formatter
 }
 
+function punto_j(){
+	formatter
+	printf "Imposto i permessi lettura e scrittura solo per $USER\n"
+	chown 660 $dir_root/studenti/nicola/lavoro
+	formatter
+	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/
+}
+
+function punto_k(){
+	formatter
+	printf "Creo un file sulla cartella Lavoro\n"
+	echo nuovo_file > $dir_root/studenti/nicola/lavoro/nuovo_file.txt
+	formatter
+	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/
+}
+
+function punto_l(){
+	formatter
+	printf "Visualizzo il contenuto della cartella $dir_root\n"
+	formatter
+	visualizza_e_dormi $dir_root
+	formatter
+	printf "Modifico gli attributi della dir $dir_root\n"
+	chmod 770 $dir_root
+	visualizza_e_dormi $dir_root
+	formatter
+	printf "Riporto i permessi iniziali\n"
+	chmod 664 $dir_root
+	visualizza_e_dormi $dir_root
+}
+
+
+function punto_m(){
+	formatter
+	printf "Mi muovo usando un percorso relativo\n"
+	formatter
+	cd $dir_root
+	cd studenti/nicola/scuola
+	printf "Al momento mi trovo sotto la dir $pwd\n"
+	visualizza_e_dormi . 
+}
+
+function punto_n(){
+	formatter
+	printf "Creo cartella .mia\n"
+	formatter
+	cd $dir_root/studenti/nicola/scuola
+	mkdir .mia 
+	chmod 660 .mia 
+	visualizza_e_dormi .
+}
+
+function punto_o(){
+	formatter
+	printf "Eseguo ls su $pwd .mia\n"
+	formatter
+	cd $dir_root/studenti/nicola/scuola
+	visualizza_e_dormi .
+}
 
 function visualizza_e_dormi() {
 	ls -l $1 $2 $3 $4 $5  
@@ -174,6 +234,12 @@ function creazione_dir() {
 	punto_f
 	punto_g
 	punto_h
+	punto_j
+	punto_k
+	punto_l
+	punto_m
+	punto_n
+	punto_o
 	punto_i
 
 }
