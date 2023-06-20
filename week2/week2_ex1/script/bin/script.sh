@@ -333,7 +333,10 @@ function lancia_vi(){
 	formatter
 	printf "Avvia in bg vi\n"
 	sleep 4
+	exec 4>output.txt
 	vi & > /dev/null
+	exec 4>&-
+	rm -rf output.txt
 	formatter
 }
 
