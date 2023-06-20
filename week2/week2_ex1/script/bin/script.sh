@@ -263,6 +263,7 @@ function background() {
 	lancia_jobs
 	lancia_vi2
 	visualizza_spazio
+	kill_firefox
 	
 }
 
