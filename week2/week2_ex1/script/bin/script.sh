@@ -40,6 +40,7 @@ function punto_d() {
 	formatter
 	printf "creo il file pippo\n"
 	printf "ciao sono il file pippo\n" >  $dir_root/studenti/nicola/lavoro/pippo.txt 
+	chmod 444 $dir_root/studenti/nicola/lavoro/pippo.txt
 	formatter
 	visualizza_e_dormi $dir_root/studenti/nicola/lavoro/pippo.txt
 }
