@@ -257,6 +257,13 @@ function background() {
 	esecuzione_firefox
 	kill_firefox
 	visualizza_spazio
+	lancia_vi
+	lancia_jobs
+	esecuzione_firefox
+	lancia_jobs
+	lancia_vi2
+	visualizza_spazio
+	
 }
 
 function lettura_man(){
@@ -319,6 +326,27 @@ function visualizza_spazio {
 	sleep 4
 	df -hT 
 	formatter
+}
+
+function lancia_vi(){
+	formatter
+	printf "Avvia in bg vi\n"
+	sleep 4
+	vi & > /dev/null
+	formatter
+}
+
+function lancia_jobs(){
+	formatter
+	printf "Esecuzione di jobs\n"
+	jobs 
+	sleep 4
+}
+
+function lancia_vi2 {
+	formatter
+	printf "Riprendo il processo vi\n"
+	%1
 }
 
 background
