@@ -257,11 +257,11 @@ function background() {
 	esecuzione_firefox
 	kill_firefox
 	visualizza_spazio
-	lancia_vi
+	lancia_emacs
 	lancia_jobs
 	esecuzione_firefox
 	lancia_jobs
-	lancia_vi2
+	lancia_emacs2
 	visualizza_spazio
 	kill_firefox
 	
@@ -329,14 +329,13 @@ function visualizza_spazio {
 	formatter
 }
 
-function lancia_vi(){
+function lancia_emacs(){
 	formatter
-	printf "Avvia in bg vi\n"
+	printf "Avvia in bg emacs\n"
 	sleep 4
-	exec 4>output.txt
-	vi & > /dev/null
-	exec 4>&-
-	rm -rf output.txt
+	if [[ -x /bin/emacs || /usr/bin/emacs ]]; then
+		emacs &
+	fi
 	formatter
 }
 
@@ -347,9 +346,9 @@ function lancia_jobs(){
 	sleep 4
 }
 
-function lancia_vi2 {
+function lancia_emacs2 {
 	formatter
-	printf "Riprendo il processo vi\n"
+	printf "Riprendo il processo emacs\n"
 	%1
 }
 
