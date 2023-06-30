@@ -104,8 +104,7 @@ void opzioni_gioco() {
 
 
 
-int main() {
-	
+int main() {	
 	presentazione_gioco();
 	opzioni_gioco();
 	return 0;	
