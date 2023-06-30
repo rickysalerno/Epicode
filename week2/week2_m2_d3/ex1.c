@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 
 void formatter(){	
@@ -22,7 +23,7 @@ void domande_gioco() {
 	formatter();
 	char risposta[3];
 	int punteggio = 0;
-	printf("Quanto fa 2+2? \n");
+	printf("\nQuanto fa 2+2? \n");
 	formatter();
 	printf("\ta)4 \n");
 	printf("\tb)7 \n");
@@ -39,7 +40,7 @@ void domande_gioco() {
 			punteggio += 0 ;
 			break;
 	}
-	printf("Il punteggio è di %d\n", punteggio);
+	printf("\nIl punteggio è di %d\n", punteggio);
 
 	printf("Qual'è il mio nome? \n");
 	formatter();
@@ -60,7 +61,7 @@ void domande_gioco() {
 	}
 	printf("Il punteggio è di %d\n", punteggio);
 	
-	printf("Qual'è il mio cognome? \n");
+	printf("\nQual'è il mio cognome? \n");
 	formatter();
 	printf("\ta)Ughi    \n");
 	printf("\tb)Sozzi   \n");
@@ -77,29 +78,37 @@ void domande_gioco() {
 			punteggio += 0 ;
 			break;
 	}
-	printf("Il tuo punteggio è: %d\n", punteggio);
+	printf("\nIl tuo punteggio è: %d\n\n", punteggio);
 }
 
 void opzioni_gioco() {
 	char scelta;
-	printf("A) Iniziare una nuova partita;\n\nB) Uscire dal gioco\n\n");
-	scanf("%c", &scelta);
+	while (1)
+	{
+
+	printf("\n\nA) Iniziare una nuova partita;\n\nB) Uscire dal gioco\n\n");
+	scanf("%s", &scelta);
 	switch (scelta) {
 		case 'A':
 			printf("Ok, iniziamo la partita.  \n");
 			formatter();
 			domande_gioco();
-			break;
+			continue; //Ripeto il ciclo in caso premo a
+			break; //Esco da switch
 		case 'a':
 			printf("Ok, iniziamo la partita.  \n");
 			formatter();
 			domande_gioco();
-			break;
+			continue; //Ripeto il ciclo in caso premo a
+			break; // Esco da switch
 		default:
 			printf("Esco dal gioco. \n");
 			break;
-			
+			goto esci; // vai direttamente su esci per chiudere il loop infinito
+		}
+		esci: break;
 	}
+	
 }
 
 
