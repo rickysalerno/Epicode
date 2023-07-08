@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
+
 lista = []
+
 
 def lista_a():
     """Inserisci una serie di parole che andarnno conteggiate dopo"""
