@@ -4,8 +4,9 @@ lista = []
 
 def lista_a():
     """Inserisci una serie di parole che andarnno conteggiate dopo"""
+    print("Inserisci 10 elementi da aggiungere alla lista:   ")
     while True:
-        lista.append(input("Inserisci 10 elementi da aggiungere alla lista:   "))
+        lista.append(input("Inserisci elemento:   "))
         if len(lista) == 10:
             break
     print(f"La lista è composta da {len(lista)} elementi")
