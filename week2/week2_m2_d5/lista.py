@@ -7,6 +7,7 @@ def funzione_a(lista_a):
 
 
 def conteggio_per_indice(lista_b):
+    """Conteggia il numero di lettere per indice"""
     a = funzione_a(["ciao", "sono", "riccardo","salerno"])
     for i in enumerate(a):
         print(f"{i}\n\r")
