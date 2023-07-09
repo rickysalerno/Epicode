@@ -28,9 +28,9 @@ def complexity(grandezza):
 
 def crea_password():
     """
-    Creazione Pass In base alla complessità
-    semplice == 8 e senza simboli
-    complessa == 20 e con simboli
+    Creazione Pass In base alla complessità:
+    semplice == 8 e senza simboli,
+    complessa == 20 e con simboli.
     """
 
     while True:
