@@ -8,6 +8,15 @@ import string
 import random
 
 
+def complexity(grandezza):
+    """In base alla complessità genero una password"""
+    if grandezza == 8:
+        caratteri = string.ascii_lowercase + string.ascii_uppercase + string.digits
+    elif grandezza == 20:
+        caratteri = string.ascii_lowercase + string.ascii_uppercase + string.punctuation + string.digits
+    return "".join(random.choice(caratteri) for i in range(grandezza))
+
+
 def crea_password():
     """
     Creazione Pass In base alla complessità
@@ -26,16 +35,13 @@ def crea_password():
         case "semplice":
             print(f"\nHai generato una tipologia di password {complessita}")
             print("\nLa password sarà priva di simboli e sarà di 8 caratteri")
-            caratteri = string.ascii_lowercase + string.ascii_uppercase + string.digits
-            grandezza = 8
+            password = complexity(8)
         case "complessa":
             print(f"\nHai selezionato una tipologia di password {complessita}")
             print("\nLa password sarà con simboli e sarà di 20 caratteri")
-            grandezza = 20
-            caratteri = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
-    combinazione = "".join(random.choice(caratteri) for i in range(grandezza))
-    print(f"\nLa grandezza della password è di: {grandezza} caratteri\n")
-    print(f"La password è: {combinazione}\n")
+            password = complexity(20)
+#print(f"\nLa grandezza della password è di: {grandezza} caratteri\n")
+    print(f"La password è: {password}\n")
 
 
 crea_password()
