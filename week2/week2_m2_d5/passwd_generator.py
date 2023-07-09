@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-""" L'applicazione creera un generatore di password """
+""" L'applicazione è un generatore di password """
 
 
 import string
@@ -9,7 +9,12 @@ import random
 
 
 def crea_password():
-    """ Creazione Pass In base alla complessità """
+    """
+    Creazione Pass In base alla complessità
+    semplice == 8 e senza simboli
+    complessa == 20 e con simboli
+    """
+
     while True:
         complessita = input("Seleziona la tipologia di password:   semplice/complessa\n")
         if complessita != "semplice" and complessita != "complessa":
