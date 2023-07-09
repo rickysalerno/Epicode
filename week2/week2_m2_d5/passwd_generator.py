@@ -34,7 +34,7 @@ def crea_password():
     """
 
     while True:
-        complessita = input("Seleziona la tipologia di password:   semplice/complessa\n")
+        complessita = input("Seleziona la tipologia di password, semplice/complessa     ---->    ")
         if complessita != "semplice" and \
             complessita != "complessa":
             print("Scelta sbagliata, seleziona tra: semplice e complessa\n")
