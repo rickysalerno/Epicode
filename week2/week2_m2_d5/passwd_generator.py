@@ -15,17 +15,16 @@ def crea_password():
         if complessita != "semplice" and complessita != "complessa":
             print("Scelta sbagliata, seleziona tra: semplice e complessa\n")
             continue
-        else:
-            break
+        break
     match complessita:
         case "semplice":
-            print(f"Hai generato una tipologia di password {complessita}")
-            print("La password sarà priva di simboli e sarà di 8 caratteri")
+            print(f"\nHai generato una tipologia di password {complessita}")
+            print("\nLa password sarà priva di simboli e sarà di 8 caratteri")
             caratteri = string.ascii_lowercase + string.ascii_uppercase + string.digits
             grandezza = 8
         case "complessa":
-            print(f"Hai selezionato una tipologia di password {complessita}")
-            print("La password sarà con simboli e sarà di 20 caratteri")
+            print(f"\nHai selezionato una tipologia di password {complessita}")
+            print("\nLa password sarà con simboli e sarà di 20 caratteri")
             grandezza = 20
             caratteri = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
     combinazione = "".join(random.choice(caratteri) for i in range(grandezza))
