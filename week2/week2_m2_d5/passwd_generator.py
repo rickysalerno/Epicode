@@ -10,7 +10,6 @@ import random
 
 def crea_password():
     """ Creazione Pass In base alla complessità """
-    complessita = ""
     while True:
         complessita = input("Seleziona la tipologia di password:   semplice/complessa\n")
         if complessita != "semplice" and complessita != "complessa":
