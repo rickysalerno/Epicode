@@ -72,4 +72,4 @@ def udp_flood_v3(indirizzo_ip, numero_porta, numero_pacchetti):
 
 
 #udp_flood_v1("192.168.86.32", 5555, 50000)
-udp_flood_v3("192.168.86.235", 80, 50000)
+udp_flood_v3("192.168.86.1", 123, 5000000)
